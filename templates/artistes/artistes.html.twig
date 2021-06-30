@@ -26,7 +26,7 @@
 							{{artist.name}}</h4>
 						<p class="card-text">{{artist.description | slice(1, 100)}}</p>
 						<p>
-							<a href="#">Découvrir l'artiste</a>
+							<a href="{{path('artiste_view', {id:artist.id} )}}">Découvrir l'artiste</a>
 						</p>
 					</div>
 				</div>

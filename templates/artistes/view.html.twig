@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArtisteController!
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+<div class="card border-primary my-3">
+
+    <div class="card-body">
+        <h4 class="card-title">{{artiste.name}}</h4>
+        <p class="card-text">{{artiste.description}}</p>
+    </div>
+</div>
+</div>
+{% endblock %}

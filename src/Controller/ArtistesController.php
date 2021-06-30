@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Artist;
 use App\Repository\ArtistRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,4 +34,21 @@ class ArtistesController extends AbstractController
             'artistes' => $artistes,
         ]);
     }
+
+    /**
+     * @Route("/artiste/view/{id}", name="artiste_view", requirements={"id"="\d+"})
+     */
+    public function view(Artist $artiste, ArtistRepository $artisteRepository): Response
+    {
+        $artisteId = $artiste->getId();
+        $artiste = $artisteRepository->find($artisteId);
+
+        return $this->render('artistes/view.html.twig', [
+            'artiste' => $artiste,
+        ]);
+    }
+
+
+
+
 }

@@ -36,15 +36,15 @@ class ArtistRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Artist
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+    
+    // public function findOne($value): ?Artist
+    // {
+    //     return $this->createQueryBuilder('artist')
+    //         ->andWhere('artist.exampleField = :id')
+    //         ->setParameter('val', $value)
+    //         ->getQuery()
+    //         ->getOneOrNullResult()
+    //     ;
+    // }
+    
 }
