@@ -13,11 +13,16 @@ class ArtistesController extends AbstractController
 {
     /**
      * @Route("/artistes", name="artistes")
+     * @Route("/artistes/category/{id}", name="liste_categoryById", requirements={"id"="\d+"})
      */
-    public function index(CategoryRepository $categoryrepository, ArtistRepository $artistrepository): Response
+    //public function index(CategoryRepository $categoryrepository, ArtistRepository $artistrepository): Response
+    public function index(CategoryRepository $categoryRepository, ArtistRepository $artistrepository, $id = null): Response
     {
-        $categories = $categoryrepository->findAll();
-        $artistes = $artistrepository->findAll();
+        $categories = $categoryRepository->findAll();
+        //$artistes = $artistrepository->findAll();
+        $artistes = $id ? $artistrepository->findBy(['category' => $id]) :  $artistrepository->findAll();
+        // Ici nous allons utiliser la souplesse d'un tableau définir et agencer les couleurs de chaque catégoried
+        // ci-dessous le tableau nom de ayant $categoryColorName
         $categoryColorName = [
             'Mélodique' => 'primary',
             'Industrielle' => 'secondary',
@@ -33,22 +38,24 @@ class ArtistesController extends AbstractController
             'categories' => $categories,
             'artistes' => $artistes,
         ]);
+
+
+
+
     }
 
     /**
-     * @Route("/artiste/view/{id}", name="artiste_view", requirements={"id"="\d+"})
+     * @Route("/artistes/view/{id}", name="artiste_view", requirements={"id"="\d+"})
      */
-    public function view(Artist $artiste, ArtistRepository $artisteRepository): Response
+    public function view(Artist $artiste, ArtistRepository $artistRepository): Response
     {
         $artisteId = $artiste->getId();
-        $artiste = $artisteRepository->find($artisteId);
+        $artiste = $artistRepository->find($artisteId);
 
         return $this->render('artistes/view.html.twig', [
             'artiste' => $artiste,
         ]);
     }
-
-
-
-
 }
+
+
