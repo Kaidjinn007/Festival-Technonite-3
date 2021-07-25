@@ -1,5 +1,5 @@
 # Festival Technonite
-Dynamic  festival website with factorised colors for categories of artists<br>
+Make a dynamic festival website with factorised colors for categories of artists<br>
 
 - 🥋 Sensei : &nbsp;                              Camlie Gastine 
 - 📅 Date : &nbsp;&nbsp;&nbsp;&nbsp;              
